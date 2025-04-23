@@ -1,0 +1,45 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+    uuid(BF9454D9-F47C-4273-9272-A13A8FEB8B9E), // LIBID
+    version(1.0),
+]
+library AtlComLib
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(A6844955-4491-4BD7-AE82-FDF05019E2C1)
+    ]
+    coclass AtlComClass
+    {
+        [default] interface IAtlCom;
+        interface IDevelopDept;
+        interface ITestDept;
+    };
+};
+
+[
+    object,
+    uuid(B5247DAC-317E-4962-9B2C-615DF00C2BBE)
+]
+interface IAtlCom : IUnknown {
+    HRESULT Info();
+};
+
+[
+    object,
+    uuid(D984BB08-635E-4B6E-BE1F-AE798682BE81)
+]
+interface IDevelopDept : IUnknown {
+    HRESULT CreateSomething();
+};
+
+[
+    object,
+    uuid(D984BB09-635E-4B6E-BE1F-AE798682BE81)
+]
+interface ITestDept : IUnknown {
+    HRESULT TestSomething();
+};

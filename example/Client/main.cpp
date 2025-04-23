@@ -1,13 +1,39 @@
 #include <memory>
+#include <iostream>
 
-#include <combaseapi.h>
+#include <atlbase.h>
+#include <atlcom.h>
 
+#include "ComComponentFactory.h"
 
+typedef HRESULT (STDAPICALLTYPE* PFNDllGetClassObject)(
+    REFCLSID rclsid, REFIID riid, LPVOID* ppv);
 
-// {BF9454D9-F47C-4273-9272-A13A8FEB8B9E}
-static constexpr GUID CLSID_MyComObject = 
-{ 0xbf9454d9, 0xf47c, 0x4273, { 0x92, 0x72, 0xa1, 0x3a, 0x8f, 0xeb, 0x8b, 0x9e } };
+HRESULT Run() {
+	try {
+		auto spObj = ComFactory::Create<ITestDept>();
+
+		spObj->TestSomething();
+
+		CComPtr<IAtlCom> spObj2;
+		spObj.QueryInterface(&spObj2);
+		spObj2->Info();}
+	catch (...) {
+		return E_UNEXPECTED;
+	}
+	
+	return S_OK;
+}
 
 int main(int argc, void** argv) {
-	return 0;
+	auto hr = CoInitialize(nullptr);
+    if (FAILED(hr)) {
+        std::cout << "CoInitialize failed\n";
+        return 1;
+    }
+	
+	hr = Run();
+	
+	CoUninitialize();
+	return hr;
 }

@@ -1,3 +1,3 @@
 #pragma once
 
-typedef LONG HRESULT;
+typedef int HRESULT;

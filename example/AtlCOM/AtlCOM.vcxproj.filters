@@ -13,33 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="來源檔案\CompanyA">
-      <UniqueIdentifier>{b2c2d81f-edf1-4818-82b6-5a00e97e4d17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="來源檔案\CompanyB">
-      <UniqueIdentifier>{b178374d-a2b8-45f3-b809-56b442b28bd0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="building.cpp">
+    <ClCompile Include="DllEntry.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="companyA.cpp">
-      <Filter>來源檔案\CompanyA</Filter>
+    <ClCompile Include="MyAtlCom.cpp">
+      <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="companyB.cpp">
-      <Filter>來源檔案\CompanyB</Filter>
+    <ClCompile Include="Interfaces_i.c">
+      <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="building_interface.h">
+    <ClInclude Include="MyAtlCom.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="companyA.h">
-      <Filter>來源檔案\CompanyA</Filter>
+    <ClInclude Include="Interfaces_h.h">
+      <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="companyB.h">
-      <Filter>來源檔案\CompanyB</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>標頭檔</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RegScript.rgs">
+      <Filter>資源檔</Filter>
+    </None>
+    <None Include="Source.def">
+      <Filter>來源檔案</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Interfaces.idl">
+      <Filter>來源檔案</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>資源檔</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
