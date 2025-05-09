@@ -107,10 +107,10 @@ PUNKNOWN CUnknown::GetOwner()
 }
 
 inline HRESULT CUnknown::GetInterface(PUNKNOWN pUnk, void** ppv) {
-		if (ppv == nullptr) {
-			return E_POINTER;
-		}
-		*ppv = pUnk;
-		pUnk->AddRef();
-		return S_OK;
-	};
+	if (ppv == nullptr) {
+		return E_POINTER;
+	}
+	*ppv = pUnk;
+	pUnk->AddRef();
+	return S_OK;
+};

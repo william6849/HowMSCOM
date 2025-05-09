@@ -7,8 +7,10 @@
 #include <atlcom.h>
 
 #include "../AtlCOM/Interfaces_h.h"
+#include "../LegacyCOM/interfaces.h"
 
 using ATLComs = std::variant<IAtlCom, IDevelopDept, ITestDept>;
+using LegacyComs = std::variant<ILegacyCom, IStorageDept, ISecurityDept>;
 
 class ComFactory {
 public:
@@ -29,8 +31,10 @@ private:
     };
 };
 
-
-
 template <> inline CLSID ComFactory::ClsidOf<IAtlCom>() { return CLSID_AtlComClass; }
 template <> inline CLSID ComFactory::ClsidOf<IDevelopDept>() { return CLSID_AtlComClass; }
 template <> inline CLSID ComFactory::ClsidOf<ITestDept>() { return CLSID_AtlComClass; }
+
+template <> inline CLSID ComFactory::ClsidOf<ILegacyCom>() { return CLSID_LegacyComClass; }
+template <> inline CLSID ComFactory::ClsidOf<IStorageDept>() { return CLSID_LegacyComClass; }
+template <> inline CLSID ComFactory::ClsidOf<ISecurityDept>() { return CLSID_LegacyComClass; }

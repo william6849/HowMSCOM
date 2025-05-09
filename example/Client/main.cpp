@@ -5,6 +5,7 @@
 #include <atlcom.h>
 
 #include "ComComponentFactory.h"
+#include "../LegacyCOM/interfaces.h"
 
 typedef HRESULT (STDAPICALLTYPE* PFNDllGetClassObject)(
     REFCLSID rclsid, REFIID riid, LPVOID* ppv);
@@ -16,8 +17,16 @@ HRESULT Run() {
 		spObj->TestSomething();
 
 		CComPtr<IAtlCom> spObj2;
-		spObj.QueryInterface(&spObj2);
-		spObj2->Info();}
+		auto ret = spObj.QueryInterface(&spObj2);
+		if (FAILED(ret)) {
+			return ret;
+		}
+		spObj2->Info();
+
+		auto legcy = ComFactory::Create<ILegacyCom>();
+		legcy->Info();
+	
+	}
 	catch (...) {
 		return E_UNEXPECTED;
 	}
