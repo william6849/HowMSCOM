@@ -1,2 +1,27 @@
 
 example/.vs/
+
+example/AtlCOM/Debug/
+example/AtlCOM/Release/
+example/AtlCOM/x64/Debug/
+example/AtlCOM/x64/Release/
+
+example/LegacyCOM/Debug/
+example/LegacyCOM/Release/
+example/LegacyCOM/x64/Debug/
+example/LegacyCOM/x64/Release/
+
+example/COMsupport/Debug/
+example/COMsupport/Release/
+example/COMsupport/x64/Debug/
+example/COMsupport/x64/Release/
+
+example/Client/Debug/
+example/Client/Release/
+example/Client/x64/Debug/
+example/Client/x64/Release/
+
+example/Debug/
+example/Release/
+example/x64/Debug/
+example/x64/Release/
